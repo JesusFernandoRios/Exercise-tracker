@@ -1,3 +1,4 @@
+const { response } = require("express")
 const db = require("../models")
 
 module.exports = function (app) {
@@ -11,13 +12,41 @@ module.exports = function (app) {
 
     app.post("/api/workouts", (req, res) => {
         // getting data from front end
-        let data = req.body;
         
+        // POST is only creating the ID and PUT will fill the document created by POST 
         db.Workout.create({
             
-            day: new Date().setDate(new Date().getDate())
+            day: new Date().setDate(new Date().getDate()),
+
         }).then(response => {
             res.json(response)
+            console.log(response)
         })
+    })
+
+    app.put("/api/workouts/:id", (req, res) => {
+
+        // 
+        let params = req.params;
+
+        let input = req.body
+
+        db.Workout.updateOne({_id: params.id }, {
+            $push: {
+                exercises: [{
+                    "type":input.type,
+                    "name":input.name,
+                    "duration":input.duration,
+                    "distance":input.distance,
+                    "weight":input.weight,
+                    "reps":input.reps,
+                    "sets":input.sets
+                }]
+            }
+        }).then(response => {
+            console.log(response)
+            res.json(response)
+        })
+
     })
 }
