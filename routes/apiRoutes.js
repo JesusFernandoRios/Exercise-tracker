@@ -26,11 +26,11 @@ module.exports = function (app) {
 
     app.put("/api/workouts/:id", (req, res) => {
 
-        // 
         let params = req.params;
 
         let input = req.body
-
+        console.log(input)
+        
         db.Workout.updateOne({_id: params.id }, {
             $push: {
                 exercises: [{
@@ -47,6 +47,13 @@ module.exports = function (app) {
             console.log(response)
             res.json(response)
         })
+    })
+
+    app.get("/api/workouts/range", (req, res) => {
+
+        // finding all exercises
+        db.Workout.find({}).then(response => res.json(response))
+
 
     })
 }

@@ -48,6 +48,3 @@ const workoutSchema = new Schema ({
 const Workout = mongoose.model("workout", workoutSchema)
 
 module.exports = Workout
-
-// name, type, weight, sets, reps, and duration of exercise. 
-// If the exercise is a cardio exercise, I should be able to track my distance traveled.
