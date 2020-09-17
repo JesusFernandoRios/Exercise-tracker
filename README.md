@@ -1,6 +1,6 @@
 # Workout-Tracker    
         
-## Live Page [https://evening-falls-68356.herokuapp.com/]
+## Live Page [workout-tracker](https://evening-falls-68356.herokuapp.com/)
 
 ## Screenshot
 ![workout-tracker](public\img\wrkout-trckr.png)
