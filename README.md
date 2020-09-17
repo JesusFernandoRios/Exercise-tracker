@@ -3,7 +3,7 @@
 ## Live Page [workout-tracker](https://evening-falls-68356.herokuapp.com/)
 
 ## Screenshot
-![workout-tracker](public\img\wrkout-trckr.png)
+![workout-tracker](public/img/wrkout-trckr.png)
                                  
 
 ## Description
